@@ -1,18 +1,10 @@
 import { Router } from "express";
+import orders from "../services/orders.ts";
+
 
 const router = Router();
 
-router.get("/health", (req, res) => {
-  res.json({ status: "ok" });
-});
-
-router.get("/hello", (req, res) => {
-  res.json({ message: "hello world" });
-});
-
-router.get("/users", (req, res) => {
-  res.json({ message: "hello world" });
-});
+router.use("/orders", orders)
 
 
 export default router;
