@@ -1,10 +1,13 @@
 import { Router } from "express";
-import orders from "../services/orders.ts";
+import { authMiddleWare } from "../services/auth/auth.middleware.ts";
+import { getSession } from "../services/session/session.service.ts";
 
 
 const router = Router();
 
-router.use("/orders", orders)
+
+router.use("/session", authMiddleWare, getSession);
 
 
 export default router;
+
