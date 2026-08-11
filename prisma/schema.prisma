@@ -5,7 +5,7 @@
 
 generator client {
   provider = "prisma-client"
-  output   = "../generated/prisma"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -13,14 +13,16 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  name      String
-  username  String   @unique
-  avatar    String?
-  email     String   @unique
-  password  String
-  role      UserRole @default(USER)
-  createdAt DateTime @default(now())
+  id         String     @id @default(uuid())
+  name       String
+  username   String     @unique
+  avatar     String?
+  email      String     @unique
+  password   String
+  role       UserRole   @default(USER)
+  createdAt  DateTime   @default(now())
+  notes      Note[]
+  categories Category[]
 
   @@map("users")
 }
@@ -29,4 +31,49 @@ enum UserRole {
   USER
   ADMIN
   SuperAdmin
+}
+
+model Category {
+  id String @id @default(uuid())
+
+  name   String
+  userId String
+
+  user User @relation(fields: [userId], references: [id])
+
+  notes Note[]
+
+  createdAt DateTime @default(now())
+
+  @@map("categories")
+}
+
+model Note {
+  id         String    @id @default(uuid())
+  userId     String
+  title      String?
+  user       User      @relation(fields: [userId], references: [id])
+  content    String
+  categoryId String?
+  category   Category? @relation(fields: [categoryId], references: [id])
+  isPinned   Boolean   @default(false)
+  isArchived Boolean   @default(false)
+  isDeleted  Boolean   @default(false)
+  tags       String[]
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  tag        Tag?      @relation(fields: [tagId], references: [id])
+  tagId      String?
+
+  @@map("notes")
+}
+
+model Tag {
+  id String @id @default(uuid())
+
+  name String
+
+  notes Note[]
+
+  @@map("tags")
 }
