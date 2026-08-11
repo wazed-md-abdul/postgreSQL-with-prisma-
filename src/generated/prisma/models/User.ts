@@ -352,6 +352,11 @@ export type UserUncheckedUpdateManyInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
+export type UserScalarRelationFilter = {
+  is?: Prisma.UserWhereInput
+  isNot?: Prisma.UserWhereInput
+}
+
 export type UserCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
@@ -385,27 +390,6 @@ export type UserMinOrderByAggregateInput = {
   createdAt?: Prisma.SortOrder
 }
 
-export type UserScalarRelationFilter = {
-  is?: Prisma.UserWhereInput
-  isNot?: Prisma.UserWhereInput
-}
-
-export type StringFieldUpdateOperationsInput = {
-  set?: string
-}
-
-export type NullableStringFieldUpdateOperationsInput = {
-  set?: string | null
-}
-
-export type EnumUserRoleFieldUpdateOperationsInput = {
-  set?: $Enums.UserRole
-}
-
-export type DateTimeFieldUpdateOperationsInput = {
-  set?: Date | string
-}
-
 export type UserCreateNestedOneWithoutCategoriesInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutCategoriesInput, Prisma.UserUncheckedCreateWithoutCategoriesInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutCategoriesInput
@@ -432,6 +416,10 @@ export type UserUpdateOneRequiredWithoutNotesNestedInput = {
   upsert?: Prisma.UserUpsertWithoutNotesInput
   connect?: Prisma.UserWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutNotesInput, Prisma.UserUpdateWithoutNotesInput>, Prisma.UserUncheckedUpdateWithoutNotesInput>
+}
+
+export type EnumUserRoleFieldUpdateOperationsInput = {
+  set?: $Enums.UserRole
 }
 
 export type UserCreateWithoutCategoriesInput = {

@@ -1,0 +1,19 @@
+model Note {
+    id         String    @id @default(uuid())
+    userId     String
+    title      String?
+    user       User      @relation(fields: [userId], references: [id])
+    content    String
+    categoryId String?
+    category   Category? @relation(fields: [categoryId], references: [id])
+    isPinned   Boolean   @default(false)
+    isArchived Boolean   @default(false)
+    isDeleted  Boolean   @default(false)
+    tags       String[]
+    createdAt  DateTime  @default(now())
+    updatedAt  DateTime  @updatedAt
+    tag        Tag?      @relation(fields: [tagId], references: [id])
+    tagId      String?
+
+    @@map("notes")
+}

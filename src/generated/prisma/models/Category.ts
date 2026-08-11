@@ -271,16 +271,6 @@ export type CategoryUncheckedUpdateManyInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type CategoryListRelationFilter = {
-  every?: Prisma.CategoryWhereInput
-  some?: Prisma.CategoryWhereInput
-  none?: Prisma.CategoryWhereInput
-}
-
-export type CategoryOrderByRelationAggregateInput = {
-  _count?: Prisma.SortOrder
-}
-
 export type CategoryCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
@@ -305,6 +295,40 @@ export type CategoryMinOrderByAggregateInput = {
 export type CategoryNullableScalarRelationFilter = {
   is?: Prisma.CategoryWhereInput | null
   isNot?: Prisma.CategoryWhereInput | null
+}
+
+export type CategoryListRelationFilter = {
+  every?: Prisma.CategoryWhereInput
+  some?: Prisma.CategoryWhereInput
+  none?: Prisma.CategoryWhereInput
+}
+
+export type CategoryOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
+}
+
+export type StringFieldUpdateOperationsInput = {
+  set?: string
+}
+
+export type DateTimeFieldUpdateOperationsInput = {
+  set?: Date | string
+}
+
+export type CategoryCreateNestedOneWithoutNotesInput = {
+  create?: Prisma.XOR<Prisma.CategoryCreateWithoutNotesInput, Prisma.CategoryUncheckedCreateWithoutNotesInput>
+  connectOrCreate?: Prisma.CategoryCreateOrConnectWithoutNotesInput
+  connect?: Prisma.CategoryWhereUniqueInput
+}
+
+export type CategoryUpdateOneWithoutNotesNestedInput = {
+  create?: Prisma.XOR<Prisma.CategoryCreateWithoutNotesInput, Prisma.CategoryUncheckedCreateWithoutNotesInput>
+  connectOrCreate?: Prisma.CategoryCreateOrConnectWithoutNotesInput
+  upsert?: Prisma.CategoryUpsertWithoutNotesInput
+  disconnect?: Prisma.CategoryWhereInput | boolean
+  delete?: Prisma.CategoryWhereInput | boolean
+  connect?: Prisma.CategoryWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CategoryUpdateToOneWithWhereWithoutNotesInput, Prisma.CategoryUpdateWithoutNotesInput>, Prisma.CategoryUncheckedUpdateWithoutNotesInput>
 }
 
 export type CategoryCreateNestedManyWithoutUserInput = {
@@ -349,20 +373,48 @@ export type CategoryUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.CategoryScalarWhereInput | Prisma.CategoryScalarWhereInput[]
 }
 
-export type CategoryCreateNestedOneWithoutNotesInput = {
-  create?: Prisma.XOR<Prisma.CategoryCreateWithoutNotesInput, Prisma.CategoryUncheckedCreateWithoutNotesInput>
-  connectOrCreate?: Prisma.CategoryCreateOrConnectWithoutNotesInput
-  connect?: Prisma.CategoryWhereUniqueInput
+export type CategoryCreateWithoutNotesInput = {
+  id?: string
+  name: string
+  createdAt?: Date | string
+  user: Prisma.UserCreateNestedOneWithoutCategoriesInput
 }
 
-export type CategoryUpdateOneWithoutNotesNestedInput = {
-  create?: Prisma.XOR<Prisma.CategoryCreateWithoutNotesInput, Prisma.CategoryUncheckedCreateWithoutNotesInput>
-  connectOrCreate?: Prisma.CategoryCreateOrConnectWithoutNotesInput
-  upsert?: Prisma.CategoryUpsertWithoutNotesInput
-  disconnect?: Prisma.CategoryWhereInput | boolean
-  delete?: Prisma.CategoryWhereInput | boolean
-  connect?: Prisma.CategoryWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.CategoryUpdateToOneWithWhereWithoutNotesInput, Prisma.CategoryUpdateWithoutNotesInput>, Prisma.CategoryUncheckedUpdateWithoutNotesInput>
+export type CategoryUncheckedCreateWithoutNotesInput = {
+  id?: string
+  name: string
+  userId: string
+  createdAt?: Date | string
+}
+
+export type CategoryCreateOrConnectWithoutNotesInput = {
+  where: Prisma.CategoryWhereUniqueInput
+  create: Prisma.XOR<Prisma.CategoryCreateWithoutNotesInput, Prisma.CategoryUncheckedCreateWithoutNotesInput>
+}
+
+export type CategoryUpsertWithoutNotesInput = {
+  update: Prisma.XOR<Prisma.CategoryUpdateWithoutNotesInput, Prisma.CategoryUncheckedUpdateWithoutNotesInput>
+  create: Prisma.XOR<Prisma.CategoryCreateWithoutNotesInput, Prisma.CategoryUncheckedCreateWithoutNotesInput>
+  where?: Prisma.CategoryWhereInput
+}
+
+export type CategoryUpdateToOneWithWhereWithoutNotesInput = {
+  where?: Prisma.CategoryWhereInput
+  data: Prisma.XOR<Prisma.CategoryUpdateWithoutNotesInput, Prisma.CategoryUncheckedUpdateWithoutNotesInput>
+}
+
+export type CategoryUpdateWithoutNotesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutCategoriesNestedInput
+}
+
+export type CategoryUncheckedUpdateWithoutNotesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type CategoryCreateWithoutUserInput = {
@@ -413,50 +465,6 @@ export type CategoryScalarWhereInput = {
   name?: Prisma.StringFilter<"Category"> | string
   userId?: Prisma.StringFilter<"Category"> | string
   createdAt?: Prisma.DateTimeFilter<"Category"> | Date | string
-}
-
-export type CategoryCreateWithoutNotesInput = {
-  id?: string
-  name: string
-  createdAt?: Date | string
-  user: Prisma.UserCreateNestedOneWithoutCategoriesInput
-}
-
-export type CategoryUncheckedCreateWithoutNotesInput = {
-  id?: string
-  name: string
-  userId: string
-  createdAt?: Date | string
-}
-
-export type CategoryCreateOrConnectWithoutNotesInput = {
-  where: Prisma.CategoryWhereUniqueInput
-  create: Prisma.XOR<Prisma.CategoryCreateWithoutNotesInput, Prisma.CategoryUncheckedCreateWithoutNotesInput>
-}
-
-export type CategoryUpsertWithoutNotesInput = {
-  update: Prisma.XOR<Prisma.CategoryUpdateWithoutNotesInput, Prisma.CategoryUncheckedUpdateWithoutNotesInput>
-  create: Prisma.XOR<Prisma.CategoryCreateWithoutNotesInput, Prisma.CategoryUncheckedCreateWithoutNotesInput>
-  where?: Prisma.CategoryWhereInput
-}
-
-export type CategoryUpdateToOneWithWhereWithoutNotesInput = {
-  where?: Prisma.CategoryWhereInput
-  data: Prisma.XOR<Prisma.CategoryUpdateWithoutNotesInput, Prisma.CategoryUncheckedUpdateWithoutNotesInput>
-}
-
-export type CategoryUpdateWithoutNotesInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutCategoriesNestedInput
-}
-
-export type CategoryUncheckedUpdateWithoutNotesInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type CategoryCreateManyUserInput = {

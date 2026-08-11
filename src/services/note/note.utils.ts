@@ -1,0 +1,9 @@
+export class NoteError extends Error {
+    constructor(public status: number, message: string) {
+        super(message);
+        this.name = "NoteError";
+        
+        // Ensure the prototype is correct (needed for custom errors in ES5/TS)
+        Object.setPrototypeOf(this, NoteError.prototype);
+    }
+}
