@@ -16,4 +16,5 @@ export interface AuthUserResponse {
     username: string;
     email: string;
     createdAt: Date;
+    token: string;
 }

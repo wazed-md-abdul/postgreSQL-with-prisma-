@@ -5,6 +5,7 @@ import { AuthError } from "./auth.utils.ts";
 export class AuthController {
     static async register(req: Request, res: Response): Promise<any> {
         try {
+
             const user = await AuthService.register(req.body);
             return res.status(201).json({
                 message: "Registration successful",
@@ -22,9 +23,17 @@ export class AuthController {
     static async login(req: Request, res: Response): Promise<any> {
         try {
             const user = await AuthService.login(req.body);
+            res.cookie("token", user.token, {
+                httpOnly: true,
+                secure: false,
+                sameSite: "lax",
+                maxAge: 7 * 24 * 60 * 60 * 1000
+            })
+
             return res.status(200).json({
                 message: "Login successful",
-                user
+                user,
+
             });
         } catch (error) {
             if (error instanceof AuthError) {

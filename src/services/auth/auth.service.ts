@@ -2,9 +2,11 @@ import bcrypt from "bcrypt";
 import prisma from "../../lib/prisma.ts";
 import { AuthError } from "./auth.utils.ts";
 import type { RegisterInput, LoginInput, AuthUserResponse } from "./auth.types.ts";
+import { createToken } from "../../utils/jwt.ts";
 
 export class AuthService {
-    static async register(input: RegisterInput): Promise<AuthUserResponse> {
+
+    static async register(input: RegisterInput): Promise<Omit<AuthUserResponse, "token">> {
         const { name, username, email, password } = input;
 
         // 1. Check if username already exists
@@ -62,14 +64,22 @@ export class AuthService {
         if (!isPasswordMatch) {
             throw new AuthError(401, "Invalid credentials");
         }
+        const token = createToken({
 
-        // 3. Return user without password
+            id: user.id,
+            email: user.email,
+            role: user.role
+
+        });
+
+
         return {
             id: user.id,
             name: user.name,
             username: user.username,
             email: user.email,
-            createdAt: user.createdAt
+            createdAt: user.createdAt,
+            token
         };
     }
 }
