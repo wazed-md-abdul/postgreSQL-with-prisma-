@@ -1,6 +1,6 @@
 import router from "./routes/index.ts";
 import cookieParser from "cookie-parser";
-import authRouter from "./services/auth/auth.routes.ts";
+import authRouter from "./routes/auth.routes.ts";
 import express from "express";
 import cors from "cors";
 
