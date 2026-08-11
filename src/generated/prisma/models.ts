@@ -8,8 +8,8 @@
  *
  * 🟢 You can import this file directly.
  */
-export type * from './models/Category.ts'
-export type * from './models/Note.ts'
-export type * from './models/Tag.ts'
-export type * from './models/User.ts'
-export type * from './commonInputTypes.ts'
+export type * from './models/Category.js'
+export type * from './models/Note.js'
+export type * from './models/Tag.js'
+export type * from './models/User.js'
+export type * from './commonInputTypes.js'

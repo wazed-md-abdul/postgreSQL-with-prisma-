@@ -1,8 +1,8 @@
 import bcrypt from "bcrypt";
-import prisma from "../../lib/prisma.ts";
-import { AuthError } from "./auth.utils.ts";
-import type { RegisterInput, LoginInput, AuthUserResponse } from "./auth.types.ts";
-import { createToken } from "../../utils/jwt.ts";
+import prisma from "../../lib/prisma.js";
+import { AuthError } from "./auth.utils.js";
+import type { RegisterInput, LoginInput, AuthUserResponse } from "./auth.types.js";
+import { createToken } from "../../utils/jwt.js";
 
 export class AuthService {
 

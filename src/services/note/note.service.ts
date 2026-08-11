@@ -1,5 +1,5 @@
-import prisma from "../../lib/prisma.ts";
-import { NoteError } from "./note.utils.ts";
+import prisma from "../../lib/prisma.js";
+import { NoteError } from "./note.utils.js";
 
 export class NoteService {
     static async create(userId: string, data: { title?: string; content: string; categoryId?: string; tags?: string[] }) {

@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "rootDir": "src",
     "module": "nodenext",
     "target": "esnext",
     "types": [],
@@ -22,6 +21,7 @@
   },
   "include": [
     "src/**/*",
-    "src/routes/index.ts"
+    "src/routes/index.ts",
+    "api/**/*"
   ]
 }

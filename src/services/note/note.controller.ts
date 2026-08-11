@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
-import { NoteService } from "./note.service.ts";
-import { NoteError } from "./note.utils.ts";
+import { NoteService } from "./note.service.js";
+import { NoteError } from "./note.utils.js";
 
 export class NoteController {
     static async create(req: Request, res: Response): Promise<any> {

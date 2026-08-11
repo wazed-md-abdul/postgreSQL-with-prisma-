@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { CategoryController } from "../services/category/category.controller.ts";
-import { validateCreateCategory, validateUpdateCategory } from "../services/category/category.validation.ts";
-import { authMiddleWare } from "../services/auth/auth.middleware.ts";
+import { CategoryController } from "../services/category/category.controller.js";
+import { validateCreateCategory, validateUpdateCategory } from "../services/category/category.validation.js";
+import { authMiddleWare } from "../services/auth/auth.middleware.js";
 
 const router = Router();
 

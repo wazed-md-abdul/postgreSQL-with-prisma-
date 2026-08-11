@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
-import { CategoryService } from "./category.service.ts";
-import { CategoryError } from "./category.utils.ts";
+import { CategoryService } from "./category.service.js";
+import { CategoryError } from "./category.utils.js";
 
 export class CategoryController {
     static async create(req: Request, res: Response): Promise<any> {

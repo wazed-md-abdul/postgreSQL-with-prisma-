@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
-import { UserService } from "./user.service.ts";
-import { UserError } from "./user.utils.ts";
+import { UserService } from "./user.service.js";
+import { UserError } from "./user.utils.js";
 
 export class UserController {
     static async getMe(req: Request, res: Response): Promise<any> {

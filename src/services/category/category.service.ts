@@ -1,5 +1,5 @@
-import prisma from "../../lib/prisma.ts";
-import { CategoryError } from "./category.utils.ts";
+import prisma from "../../lib/prisma.js";
+import { CategoryError } from "./category.utils.js";
 
 export class CategoryService {
     static async create(userId: string, name: string) {

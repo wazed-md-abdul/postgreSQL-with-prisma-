@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
-import { AuthService } from "./auth.service.ts";
-import { AuthError } from "./auth.utils.ts";
+import { AuthService } from "./auth.service.js";
+import { AuthError } from "./auth.utils.js";
 
 export class AuthController {
     static async register(req: Request, res: Response): Promise<any> {

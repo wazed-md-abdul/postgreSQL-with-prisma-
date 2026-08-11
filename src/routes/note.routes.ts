@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { NoteController } from "../services/note/note.controller.ts";
-import { validateCreateNote, validateUpdateNote } from "../services/note/note.validation.ts";
-import { authMiddleWare } from "../services/auth/auth.middleware.ts";
+import { NoteController } from "../services/note/note.controller.js";
+import { validateCreateNote, validateUpdateNote } from "../services/note/note.validation.js";
+import { authMiddleWare } from "../services/auth/auth.middleware.js";
 
 const router = Router();
 

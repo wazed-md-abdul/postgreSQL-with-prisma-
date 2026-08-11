@@ -1,7 +1,7 @@
 import { Router } from "express";
-import noteRouter from "./note.routes.ts";
-import userRouter from "./user.routes.ts";
-import categoryRouter from "./category.routes.ts";
+import noteRouter from "./note.routes.js";
+import userRouter from "./user.routes.js";
+import categoryRouter from "./category.routes.js";
 
 const router = Router();
 

@@ -1,5 +1,5 @@
-import prisma from "../../lib/prisma.ts";
-import { UserError } from "./user.utils.ts";
+import prisma from "../../lib/prisma.js";
+import { UserError } from "./user.utils.js";
 
 export class UserService {
     static async getProfile(userId: string) {

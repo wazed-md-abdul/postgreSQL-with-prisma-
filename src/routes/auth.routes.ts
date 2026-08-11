@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { AuthController } from "../services/auth/auth.controller.ts";
-import { validateRegister, validateLogin } from "../services/auth/auth.validation.ts";
-import { getSession } from "../services/session/session.service.ts";
-import { authMiddleWare } from "../services/auth/auth.middleware.ts";
-import { logout } from "../services/logout/logout.service.ts";
+import { AuthController } from "../services/auth/auth.controller.js";
+import { validateRegister, validateLogin } from "../services/auth/auth.validation.js";
+import { getSession } from "../services/session/session.service.js";
+import { authMiddleWare } from "../services/auth/auth.middleware.js";
+import { logout } from "../services/logout/logout.service.js";
 
 const router = Router();
 
